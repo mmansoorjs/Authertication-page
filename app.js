@@ -1,21 +1,7 @@
 //  =========cdn import firebase without install ==========
+ import{app, auth} from "./firebase.js"
+ import{createUserWithEmailAndPassword,signInWithEmailAndPassword,sendEmailVerification,signOut } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
  
- import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
- import { getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,sendEmailVerification,signOut  } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
-
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyAaK5bcYzr-9RgVOLrm4Q1rCXEgKjvYHuo",
-    authDomain: "authentication-page-a1b90.firebaseapp.com",
-    projectId: "authentication-page-a1b90",
-    storageBucket: "authentication-page-a1b90.appspot.com",
-    messagingSenderId: "90293539531",
-    appId: "1:90293539531:web:e747ee388b5b569b09c14e"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-
 
 
 
@@ -87,20 +73,21 @@ let Symbol = document.querySelectorAll(".Symbol")[0];
 
     const user = res.user;
     console.log(user)
+    window.open("home.html")
 
-    verify.style.display='block'
-    main.style.display='none'
+    // verify.style.display='block'
+    // main.style.display='none'
 
 
-    if(user.emailVerified===true){
-      Symbol.style.color='green'
-      Symbol.innerHTML= `&#10004`;
-      verifyBtn.style.display='none';
-    }
-    else{
-      console.log("verification false")
-      // verifyBtn.style.display='block'
-    }
+    // if(user.emailVerified===true){
+    //   Symbol.style.color='green'
+    //   Symbol.innerHTML= `&#10004`;
+    //   verifyBtn.style.display='none';
+    // }
+    // else{
+    //   console.log("verification false")
+    //   // verifyBtn.style.display='block'
+    // }
 
    })
 
@@ -158,17 +145,17 @@ logout.addEventListener('click' ,()=>{
 
 //============ sentVerification work============
 
-let sentVerification = ()=>{
+// let sentVerification = ()=>{
 
-sendEmailVerification(auth.currentUser)
- .then(() => {
+// sendEmailVerification(auth.currentUser)
+//  .then(() => {
 
-  // console.log(auth.currentUser);
-});
+//   // console.log(auth.currentUser);
+// });
 
 
-}
+// }
 
 // window.sendEmailVerification=sendEmailVerification;
 
-verifyBtn.addEventListener('click' , sentVerification)
+// verifyBtn.addEventListener('click' , sentVerification)
